@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Enderman114514的小站</title>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="shortcut icon" href="{% static 'images/Enderman114514.png' %}">
+        {% bootstrap_javascript jquery='full' %}
+    </head>
+    <body background="{% static 'images/background_.png' %}"
+          style="background-attachment: fixed; background-size: cover; background-repeat: no-repeat;
+                    background-position: center">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border sticky-top justify-content-center">
+
+            <span class="navbar-brand">
+                <img src="{% static 'images/Enderman114514.png' %}" width="24" height="24">ENDERMAN114514
+            </span>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                  aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <ul class="navbar-nav mc-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'e_site:index' %}">主页</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#message">留言板</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">传送门</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"
+                                   href="#https://cloudrain-studio.com/user/1" target="_blank">云雨工作室</a>
+                                <a class="dropdown-item"
+                                   href="https://space.bilibili.com/1635470072" target="_blank">
+                                    B站&emsp;&emsp;<small class="text-right text-muted">UID：1635470072</small>
+                                </a>
+                                <a class="dropdown-item"
+                                   href="https://www.ccw.site/student/62acac7801fb2c3c96d59c24" target="_blank">
+                                    共创&emsp;&emsp;<small class="text-right text-muted">UID：237431506</small>
+                                </a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/Enderman114514" target="_blank">
+                                    Github&nbsp;&nbsp;&nbsp;<small class="text-right text-muted">Enderman114514</small>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <span class="dropdown-header">VX：lin-229028</span>
+                                <span class="dropdown-header">QQ：2707257533</span>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <main role="main" class="container text-light font-family: deng" style="font-style: regular">
+            <div class="pb-2 mb-2 border-bottom">
+                {% block head %}{% endblock head %}
+            </div>
+            <div class="jumbotron bg-dark">
+                {% block body %}{% endblock body %}
+            </div>
+        </main>
+
+    </body>
+</html>
