@@ -1,0 +1,70 @@
+{% extends 'e_site/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block head %}
+    <div class="jumbotron bg-dark shadow">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/font.css' %}">
+
+        <h1 class="display-6 text-center font-family: mojangles" style="font-style: italic">Welcome To My Site.</h1>
+        <p class="lead text-center text-muted">Enderman114514的小站</p>
+        <p class="text-center text-muted">
+<!--            <small>-->
+            · 你是第<img src="https://saobby.pythonanywhere.com/api/webcounter?id=Sgl3AwVQtXejXDSi">个访问我的小站的人 ·
+<!--            </small>-->
+        </p>
+
+        <p class="lead text-center">
+            ●&emsp;<a href="#https://cloudrain-studio.com/user/1"
+                      target="_blank" class="text-decoration-none text-warning">云雨工作室</a>&emsp;
+            ●&emsp;<a href="https://space.bilibili.com/1635470072"
+                      target="_blank" class="text-decoration-none text-warning">B站</a>&emsp;
+            ●&emsp;<a href="https://www.ccw.site/student/62acac7801fb2c3c96d59c24"
+                      target="_blank" class="text-decoration-none text-warning">共创</a>&emsp;
+            ●&emsp;<a href="https://github.com/Enderman114514"
+                      target="_blank" class="text-decoration-none text-warning">Github</a>&emsp;●
+            <small class="d-block text-muted">
+                <small>VX：lin-229028&emsp;QQ：2707257533&emsp;mail：2707257533@qq.com</small>
+            </small>
+        </p>
+        <p></p>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <div id="message">
+        <div class="mb-5 pb-5">
+            <h3>留言板</h3>
+            <form action="{% url 'e_site:index' %}" method="post" class="form ml-3">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button name="submit"
+                            class="btn btn-lg btn-outline-warning float-right js-captcha-refresh">留言</button>
+                {% endbuttons %}
+            </form>
+        </div>
+        <hr>
+        <div>
+            {% for c in comments %}
+                <div class="mb-2 p-3 bg-dark border rounded">
+                    <h4>{{ c.owner }}：</h4>
+                    <hr>
+                    <p>{{ c.content|safe|linebreaks }}</p>
+                    <small class="text-muted">{{ c.date_added }}</small>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+<script>
+    $('.js-captcha-refresh').click(function(){
+        $form = $(this).parents('form');
+
+        $.getJSON($(this).data('url'), {}, function(json) {
+            // This should update your captcha image src and captcha hidden input
+        });
+
+        return false;
+    });
+</script>
