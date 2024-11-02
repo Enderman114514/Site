@@ -1,0 +1,14 @@
+
+@font-face {
+ font-family: 'mojangles';
+ src: url("mojangles.ttf") format('truetype'); }/* 114514 */
+}
+
+@font-face {
+  font-family: 'deng';
+  src: url("dengl.ttf") format('truetype');
+}
+
+.fz-FZY1JW {
+ font-family: 'mojangles', sans-serif;
+}
